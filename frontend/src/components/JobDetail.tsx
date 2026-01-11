@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../api';
+import type { Job } from '../types';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const JobDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
