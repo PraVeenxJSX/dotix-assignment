@@ -16,10 +16,16 @@ app.post('/webhook-test', (req, res) => {
     res.status(200).send('Webhook received');
 });
 
+const db = require('../models');
+
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+db.sequelize.sync().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}).catch(err => {
+    console.error('Failed to sync database:', err);
 });
 
 module.exports = app;
