@@ -21,7 +21,7 @@ services:
         value: mysql
 
   # Frontend Service
-  - type: static
+  - type: web
     name: dotix-job-scheduler-frontend
     env: static
     buildCommand: cd frontend && npm install && npm run build
