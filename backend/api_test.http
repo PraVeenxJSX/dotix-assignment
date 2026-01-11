@@ -1,0 +1,30 @@
+### Create Job
+POST http://localhost:4000/jobs
+Content-Type: application/json
+
+{
+  "taskName": "Test Job 1",
+  "priority": "High",
+  "payload": {
+    "email": "test@example.com",
+    "type": "report"
+  }
+}
+
+### List Jobs
+GET http://localhost:4000/jobs
+
+### Get Job Details
+GET http://localhost:4000/jobs/1
+
+### Run Job
+POST http://localhost:4000/jobs/run-job/1
+
+### Test Webhook
+POST http://localhost:4000/webhook-test
+Content-Type: application/json
+
+{
+  "jobId": 1,
+  "status": "completed"
+}
